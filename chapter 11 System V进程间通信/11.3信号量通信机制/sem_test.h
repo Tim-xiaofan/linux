@@ -8,40 +8,58 @@
 #include <sys/sem.h>
 #include <sys/types.h>
 
+#define  SEM_KEY 2055
+
+union semun
+{
+
+    int val; /* value for SETVAL */
+
+    struct semid_ds *buf; /* buffer for IPC_STAT, IPC_SET */
+
+    unsigned short *array; /* array for GETALL, SETALL */
+
+    struct seminfo *__buf; /* buffer for IPC_INFO */
+} ;
+
 //const int sems_count 2;
 
 /*信号量的p操作*/
-int sem_p (int semid, int semnum){
+int sem_p(int semid, int semnum)
+{
     struct sembuf op;
     op.sem_num = semnum;
     op.sem_op = -1;
-    op.sem_flg = 0;//默认操作
-    if(semop(semid, &op, 1) == -1){
-        printf("semop %s\n", strerror(errno));
+    op.sem_flg = 0; //默认操作
+    if (semop(semid, &op, 1) == -1)
+    {
+        printf("semop p %s\n", strerror(errno));
         return -1;
     }
     return 0;
 }
 
 /*信号量的v操作*/
-int sem_v (int semid, int semnum){
+int sem_v(int semid, int semnum)
+{
     struct sembuf op;
     op.sem_num = semnum;
     op.sem_op = 1;
-    op.sem_flg = 0;//默认操作
-    if(semop(semid, &op, 1) == -1){
-        printf("semop %s\n", strerror(errno));
+    op.sem_flg = 0; //默认操作
+    if (semop(semid, &op, 1) == -1)
+    {
+        printf("semop v %s\n", strerror(errno));
         return -1;
     }
     return 0;
 }
 
-int get_sem(const int sems_count)
+/*int get_sem(const int sems_count)
 {
 
     int sem;
     key_t key;
-    if ((key = ftok(".", 'A')) == -1)
+    if ((key = key_sem) == -1)
     { //获取key值
         printf("ftok:%s\n", strerror(errno));
         return -1;
@@ -52,4 +70,4 @@ int get_sem(const int sems_count)
         return -1;
     }
     return sem;
-}
+}*/
