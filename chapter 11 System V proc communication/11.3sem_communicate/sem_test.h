@@ -33,7 +33,7 @@ int sem_p(int semid, int semnum)
     op.sem_flg = 0; //默认操作
     if (semop(semid, &op, 1) == -1)
     {
-        printf("semop p %s\n", strerror(errno));
+        printf("semop p in proc-%d %s\n", getpid(),strerror(errno));
         return -1;
     }
     return 0;
@@ -48,7 +48,7 @@ int sem_v(int semid, int semnum)
     op.sem_flg = 0; //默认操作
     if (semop(semid, &op, 1) == -1)
     {
-        printf("semop v %s\n", strerror(errno));
+        printf("semop v in proc-%d %s\n",  getpid(), strerror(errno));
         return -1;
     }
     return 0;

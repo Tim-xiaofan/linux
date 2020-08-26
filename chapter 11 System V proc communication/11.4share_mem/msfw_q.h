@@ -1,18 +1,20 @@
 /*用于共享内存的数据结构*/
 #include <stdio.h>
 #include <string.h>
+#include <sys/types.h>
 #include <stdlib.h>
-#include <errno.h>
+#include <unistd.h>
 #include <stdbool.h>
+#include <time.h>
 
-#define buf_size  512
+#define BUF_SIZE 512
 
 typedef struct node_item
 {
     char data;
-}item;
+} item;
 
-void itemcpy(item* di, const item* si)
+void itemcpy(item *di, const item *si)
 {
     di->data = si->data;
 }
@@ -20,7 +22,7 @@ void itemcpy(item* di, const item* si)
 /*环形缓冲区,循环队列*/
 typedef struct node
 {
-    item data[buf_size];
+    item data[BUF_SIZE];
     int front, rear;
     bool is_full;
     bool is_empty;
@@ -38,18 +40,18 @@ void init_q(msfw_q *q)
 /*返回队列元素个数*/
 int get_items(const msfw_q *q)
 {
-    return (q->rear - q->front + buf_size) % buf_size;
+    return (q->rear - q->front + BUF_SIZE) % BUF_SIZE;
 }
 
 /*队尾插入元素*/
-bool en_q(msfw_q *q, item* e)
+bool en_q(msfw_q *q, item *e)
 {
     //printf("test\n");
-    if ((q->rear + 1) % buf_size == q->front)
+    if ((q->rear + 1) % BUF_SIZE == q->front)
         return false;
     //q->data[q->rear] = e;
     itemcpy(&(q->data[q->rear]), e);
-    q->rear = (q->rear + 1) % buf_size;
+    q->rear = (q->rear + 1) % BUF_SIZE;
     return true;
 }
 
@@ -59,7 +61,7 @@ bool out_q(msfw_q *q, item *e)
     if (q->front == q->rear)
         return false;
     itemcpy(e, &q->data[q->front]);
-    q->front = (q->front + 1) % buf_size;
+    q->front = (q->front + 1) % BUF_SIZE;
     return true;
 }
 
@@ -78,7 +80,7 @@ void print_q(const msfw_q *q)
     for (i = 0; i < count; i++)
     {
         printf("%c ", q->data[p].data);
-        p = (p + 1) % buf_size;
+        p = (p + 1) % BUF_SIZE;
     }
     printf("\n");
     //printf("%c ", q->data[front]);
@@ -87,7 +89,7 @@ void print_q(const msfw_q *q)
 /*断队列是否已满*/
 bool is_full(msfw_q *q)
 {
-    if ((q->rear + 1) % buf_size == q->front)
+    if ((q->rear + 1) % BUF_SIZE == q->front)
         return true;
     ;
     return false;
@@ -98,4 +100,10 @@ bool is_empty(msfw_q *q)
     if (q->front == q->rear)
         return true;
     return false;
+}
+
+int get_rand_num()
+{
+    srand((unsigned)(getpid() + time(NULL)));
+    return rand() % 4; //0~3s
 }

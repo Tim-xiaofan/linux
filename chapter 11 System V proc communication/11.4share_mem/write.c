@@ -12,16 +12,30 @@ int main(int argc, char *argv[])
     {
         printf("shmat %s", strerror(errno));
         return -1;
-    }
-    int i;
+    }   
+    pid_t pid = getpid();
+    int i, num;
     item* e = (item*)malloc(sizeof(item));
-    for(i = 0; i <= 26; i++)
+    for(i = 0; i < 26; i++)
     {
-        sem_p(semid, 0);
-        e->data = 'a' + i;
-        print_q(shm_addr);
+        //申请一个空缓冲区
+		sem_p(semid, EMPTY);
+		//申请缓冲区使用权
+		sem_p(semid, MUTEX);
+        //sleep 0~3s
+        num = get_rand_num();
+        sleep(num);
+		//放入一个字母
+        char ch = 'a' + i;
+        e->data = ch;
         en_q(shm_addr, e);
-        sem_v(semid, 0);
+		printf("生产者%d生产%c		缓冲区:", pid, ch);
+		print_q(shm_addr);
+		printf("\n");
+		//归还缓冲区使用权
+		sem_v(semid, MUTEX);
+		//释放一个产品
+		sem_v(semid, FULL);
     }
     semctl(semid, IPC_RMID, 0);
     shmctl(shmid, IPC_RMID, 0); //销毁
