@@ -1,0 +1,5 @@
+gcc:gcc -g -o no_init_test no_init_test.c
+valgrind:valgrind --tool=memcheck --show-reachable=yes \
+--read-var-info=yes --verbose --time-stamp=yes --leak-check=full \
+--log-file=mycode.log ./no_init_test
+
