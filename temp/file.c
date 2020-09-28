@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int ext = 3;
+int ext;
 
 void test()
 {
