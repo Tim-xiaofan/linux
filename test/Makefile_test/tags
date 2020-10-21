@@ -1,0 +1,63 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+APP	../Makefile_test/Makefile	/^APP=Makefile_test$/;"	m
+APP	Makefile	/^APP=Makefile_test$/;"	m
+A_H	../Makefile_test/m_include/a.h	2;"	d
+A_H	m_include/a.h	2;"	d
+B_H	../Makefile_test/m_include/b.h	2;"	d
+B_H	m_include/b.h	2;"	d
+CC	../Makefile_test/Makefile	/^CC=gcc$/;"	m
+CC	Makefile	/^CC=gcc$/;"	m
+CFLAGS	../Makefile_test/Makefile	/^CFLAGS=-Wall -g$/;"	m
+CFLAGS	Makefile	/^CFLAGS=-Wall -g$/;"	m
+C_H	../Makefile_test/m_include/c.h	2;"	d
+C_H	m_include/c.h	2;"	d
+INC	../Makefile_test/Makefile	/^INC=-I.\/m_include$/;"	m
+INC	Makefile	/^INC=-I.\/m_include$/;"	m
+LIBS	../Makefile_test/Makefile	/^LIBS=-lpthread$/;"	m
+LIBS	Makefile	/^LIBS=-lpthread$/;"	m
+OBJS	../Makefile_test/Makefile	/^OBJS=$(SRCS:.c=.o)$/;"	m
+OBJS	Makefile	/^OBJS=$(SRCS:.c=.o)$/;"	m
+SRCS	../Makefile_test/Makefile	/^SRCS=main.c .\/m_include\/a.c .\/m_include\/b.c .\/m_include\/c.c$/;"	m
+SRCS	Makefile	/^SRCS=main.c .\/m_include\/a.c .\/m_include\/b.c .\/m_include\/c.c$/;"	m
+_GNU_SOURCE	../affinity_test.c	1;"	d	file:
+_GNU_SOURCE	../pthread_to_cpu.c	1;"	d	file:
+a_func	../Makefile_test/m_include/a.c	/^void a_func(void)$/;"	f
+a_func	m_include/a.c	/^void a_func(void)$/;"	f
+b_func	../Makefile_test/m_include/b.c	/^void b_func(void)$/;"	f
+b_func	m_include/b.c	/^void b_func(void)$/;"	f
+c	../point_test.c	/^	char c;$/;"	m	struct:node	file:
+c_func	../Makefile_test/m_include/c.c	/^void c_func(void)$/;"	f
+c_func	m_include/c.c	/^void c_func(void)$/;"	f
+ch	../struct_test.c	/^	uint8_t ch;\/\/1 之后的三个字节不使用$/;"	m	struct:node	file:
+ext	../file.c	/^int ext;$/;"	v
+i	../point_test.c	/^	int i;$/;"	m	struct:node	file:
+i	../struct_test.c	/^	uint32_t i;\/\/4$/;"	m	struct:node	file:
+main	../Makefile_test/main.c	/^int main(int argc, char* argv[])$/;"	f
+main	../affinity_test.c	/^int main(int argc, char *argv[])$/;"	f
+main	../ext_test.c	/^int main(int argc, char *argv[])$/;"	f
+main	../point_test.c	/^int main(int argc, char *argv[])$/;"	f
+main	../pthread_to_cpu.c	/^int main(int argc, char *argv[])$/;"	f
+main	../sock_test.c	/^int main(int argc, char* argv[])$/;"	f
+main	../struct_test.c	/^int main(int argc, char* argv[])$/;"	f
+main	../tab_test.c	/^int main(int argc, char* argv[])$/;"	f
+main	../test.c	/^int main(int argc, char *argv[])$/;"	f
+main	main.c	/^int main(int argc, char* argv[])$/;"	f
+node	../point_test.c	/^typedef struct node$/;"	s	file:
+node	../struct_test.c	/^typedef struct node$/;"	s	file:
+print_test	../point_test.c	/^static void print_test(const test *t)$/;"	f	file:
+str	../point_test.c	/^	char str[3];$/;"	m	struct:node	file:
+str	../struct_test.c	/^	char *str;\/\/8$/;"	m	struct:node	file:
+str1	../struct_test.c	/^	uint8_t* str1;\/\/8$/;"	m	struct:node	file:
+test	../Makefile_test/main.c	/^static void *test(void* argv)$/;"	f	file:
+test	../file.c	/^void test()$/;"	f
+test	../point_test.c	/^} test;$/;"	t	typeref:struct:node	file:
+test	../struct_test.c	/^}test;\/\/24 != 4 + 1 + 8 +8 = 21$/;"	t	typeref:struct:node	file:
+test	main.c	/^static void *test(void* argv)$/;"	f	file:
+test2	../file.c	/^static void test2()$/;"	f	file:
+testfunc	../affinity_test.c	/^void *testfunc(void *arg)$/;"	f
+testfunc	../pthread_to_cpu.c	/^void *testfunc(void *arg)$/;"	f
