@@ -1,0 +1,10 @@
+prefix=/home/zyj/workspace/linux/test/automake_test/lib
+exec_prefix=${prefix}
+includedir=${prefix}
+libdir=${exec_prefix}
+
+Name: dynamic
+Description: The dynamic library by zyj
+Version: 1.0.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -ldynamic

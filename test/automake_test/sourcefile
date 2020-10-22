@@ -1,0 +1,2 @@
+export PKG_CONFIG_PATH=/home/zyj/workspace/linux/test/automake_test/lib
+export LD_LIBRARY_PATH=/home/zyj/workspace/linux/test/automake_test/lib
