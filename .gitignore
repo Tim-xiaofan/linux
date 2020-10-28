@@ -25,4 +25,4 @@ test/sock_test
 test/struct_test
 test/tab_test
 test/test
-
+test/ByteAlignmentTest/byte_alinment_test
