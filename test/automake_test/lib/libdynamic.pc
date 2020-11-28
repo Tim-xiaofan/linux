@@ -1,4 +1,4 @@
-prefix=/home/zyj/workspace/linux/test/automake_test/lib
+prefix=/home/zyj/workspace/Linux/test/automake_test/lib
 exec_prefix=${prefix}
 includedir=${prefix}
 libdir=${exec_prefix}

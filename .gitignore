@@ -25,4 +25,4 @@ test/sock_test
 test/struct_test
 test/tab_test
 test/test
-
+test/route_aggregation_test/main
