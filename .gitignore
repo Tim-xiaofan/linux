@@ -17,13 +17,19 @@ test/test
 test/Makefile_test/Makefile_test
 test/affinity_test
 test/automake_test/src/automakeTest
-test/memsize_of_point_test
-test/multithreads_gdb
-test/point_test
-test/pthread_to_cpu
-test/sock_test
-test/struct_test
-test/tab_test
-test/test
 test/route_aggregation_test/main
 test/ByteAlignmentTest/byte_alinment_test
+test/SelectTest/a.out
+test/SelectTest/stdin_test
+test/extern_test/ext_test
+test/macro log/macro_log
+chapter 12 Linux Multi Pthread Code/12.1-pthread create and op/pthread_exit_test
+chapter 11 System V proc communication/11.2消息队列/ipcmsg_test
+chapter 11 System V proc communication/11.4share_mem/test
+chapter 11 System V proc communication/11.4share_mem/write
+chapter 11 System V proc communication/11.4share_mem/read
+chapter 11 System V proc communication/11.4share_mem/shm_test
+chapter 13 Linux Socket Net Code/13.1 Net Communicate Base/13.1.5 字节顺序与大小端问题/print_endian
+chapter 3 Linux Progress Memory Management/3.4-process-evironment-and-system-limits/getopt_test
+chapter 3 Linux Progress Memory Management/3.4-process-evironment-and-system-limits/getopt_long_test
+chapter 3 Linux Progress Memory Management/3.3-valgrind/no_init_test
