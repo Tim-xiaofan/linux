@@ -33,3 +33,4 @@ chapter 13 Linux Socket Net Code/13.1 Net Communicate Base/13.1.5 字节顺序�
 chapter 3 Linux Progress Memory Management/3.4-process-evironment-and-system-limits/getopt_test
 chapter 3 Linux Progress Memory Management/3.4-process-evironment-and-system-limits/getopt_long_test
 chapter 3 Linux Progress Memory Management/3.3-valgrind/no_init_test
+test/struct_array
