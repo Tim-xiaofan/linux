@@ -35,3 +35,7 @@ chapter 3 Linux Progress Memory Management/3.4-process-evironment-and-system-lim
 chapter 3 Linux Progress Memory Management/3.3-valgrind/no_init_test
 test/struct_array
 apps/progress-bar/progress_bar
+test/zhihu
+test/shell and C/popen
+test/shell and C/shell_return
+test/intel_crc32
