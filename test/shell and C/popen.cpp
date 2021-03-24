@@ -7,7 +7,7 @@ int main()
 	char data[100] = {'0'};
 	int ct = 0;
 
-	fp = popen("last", "r");
+	fp = popen("top", "r");
 	if (fp == NULL)
 	{
 		printf("popen error!\n");

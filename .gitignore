@@ -39,3 +39,6 @@ test/zhihu
 test/shell and C/popen
 test/shell and C/shell_return
 test/intel_crc32
+test/time
+test/mysql/core
+test/mysql/mysql
