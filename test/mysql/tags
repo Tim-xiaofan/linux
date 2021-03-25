@@ -1,0 +1,23 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+APP	Makefile	/^APP = mysql$/;"	m
+DATABASE	mysql.c	9;"	d	file:
+M	mysql.c	7;"	d	file:
+N	mysql.c	6;"	d	file:
+PASSWD	mysql.c	12;"	d	file:
+PLATFORM	Makefile	/^		PLATFORM="MacOS"$/;"	m
+PLATFORM	Makefile	/^		PLATFORM="Unix-Like"$/;"	m
+PLATFORM	Makefile	/^		PLATFORM="Windows"$/;"	m
+SHELL	Makefile	/^		SHELL=powershell.exe$/;"	m
+SHELL	Makefile	/^SHELL=powershell.exe$/;"	m
+SRCS-y	Makefile	/^SRCS-y := mysql.c$/;"	m
+TABLE	mysql.c	10;"	d	file:
+USER	mysql.c	11;"	d	file:
+main	mysql.c	/^int main()$/;"	f
+query_error	mysql.c	/^void query_error(int ret)$/;"	f
+show_result	mysql.c	/^void show_result(MYSQL *mysql)$/;"	f
+values	mysql.c	/^static const char values[N][M] = {$/;"	v	file:
