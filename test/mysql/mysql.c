@@ -9,6 +9,7 @@
 
 #define DATABASE "school"
 #define TABLE "student"
+//#define TABLE "sctp_record"
 #define USER "zyj"
 #define PASSWD "zyj"
 
@@ -17,6 +18,13 @@ static const char values[N][M] = {
 	"(1, 'Jerry', 'G', '2021-8-21', '1234567910', 'UK', 'PE')",
 	"(2, 'Spike', 'B', '2021-7-2', '12345668901', 'CN', 'PE')",
 };
+
+//static const char values[N][M] = {
+//	"(0, 'Tom', 'B', '2021-7-21', '12345678901', 'US', 'PE')",
+//	"(1, 'Jerry', 'G', '2021-8-21', '1234567910', 'UK', 'PE')",
+//	"(2, 'Spike', 'B', '2021-7-2', '12345668901', 'CN', 'PE')",
+//};
+
 
 static const char fields[SQLLIM] = {
 	"id integer not null,"

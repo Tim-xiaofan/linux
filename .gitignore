@@ -42,3 +42,5 @@ test/intel_crc32
 test/time
 test/mysql/core
 test/mysql/mysql
+test/tcp socket/server
+test/tcp socket/client

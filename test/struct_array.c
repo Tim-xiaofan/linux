@@ -38,7 +38,7 @@ int main()
 	list_bytes(mac2.addr_bytes);
 	uint8_t bytes[6]= VALUE;
 	uint8_t bytes1[6];
-	//bytes1 = bytes;
+	//bytes1 = bytes; /** invalid array assign*/
 	printf("%p, %p\n", bytes, bytes1);
 	list_bytes(bytes1);
 }
