@@ -44,3 +44,5 @@ test/mysql/core
 test/mysql/mysql
 test/tcp socket/server
 test/tcp socket/client
+test/pcap application/pcap_loop
+test/pcap application/pcap
