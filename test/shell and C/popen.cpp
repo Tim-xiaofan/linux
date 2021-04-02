@@ -11,7 +11,7 @@ int main()
 	int ct = 0;
 	time_t tt;
 
-	fp = popen("cat ~/.bash_history ", "r");
+	fp = popen("cat ~/.bash_history", "r");
 	if (fp == NULL)
 	{
 		printf("popen error!\n");
@@ -21,7 +21,13 @@ int main()
 //	printf("tt = %lu\n", tt);
 
 	while (fgets(data, sizeof(data), fp) != NULL && (++ct) <= 10)
+	{
+		tt = atol(&data[1]);
+		//printf("%lu\n", tt);
+		if(tt != 0)
+		  printf("%s\n", ctime(&tt));
 		printf("%s", data);
+	}
 	pclose(fp);
 	return 0;
 }
