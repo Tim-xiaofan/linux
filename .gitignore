@@ -46,3 +46,4 @@ test/tcp socket/server
 test/tcp socket/client
 test/pcap application/pcap_loop
 test/pcap application/pcap
+test/send syn/send_syn
