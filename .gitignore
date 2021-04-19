@@ -1,4 +1,6 @@
 *.o
+*.s
+*.i
 temp/Makefile_test/tags
 temp/memsize_of_point_test
 temp/multithreads_gdb
@@ -47,3 +49,6 @@ test/tcp socket/client
 test/pcap application/pcap_loop
 test/pcap application/pcap
 test/send syn/send_syn
+test/MIPS-procedure/mips_procedure
+test/memset_strlen
+test/signal-multicall/signal_multicall
