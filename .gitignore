@@ -52,3 +52,4 @@ test/send syn/send_syn
 test/MIPS-procedure/mips_procedure
 test/memset_strlen
 test/signal-multicall/signal_multicall
+test/numa
