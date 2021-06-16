@@ -1,6 +1,8 @@
 *.o
 *.s
 *.i
+*.pcap
+*.cap
 temp/Makefile_test/tags
 temp/memsize_of_point_test
 temp/multithreads_gdb
@@ -53,3 +55,5 @@ test/MIPS-procedure/mips_procedure
 test/memset_strlen
 test/signal-multicall/signal_multicall
 test/numa
+test/pcap application/pcap_offline
+test/select-test/stdin_test
