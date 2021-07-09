@@ -3,6 +3,7 @@
 *.i
 *.pcap
 *.cap
+core*
 temp/Makefile_test/tags
 temp/memsize_of_point_test
 temp/multithreads_gdb
@@ -57,3 +58,6 @@ test/signal-multicall/signal_multicall
 test/numa
 test/pcap application/pcap_offline
 test/select-test/stdin_test
+ch-14 TCP advanced application/unblock/tcp_unblock_server
+ch-14 TCP advanced application/unblock/tcp_unblock_client
+ch-14 TCP advanced application/select/stdin_test
