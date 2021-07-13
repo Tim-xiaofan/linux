@@ -61,3 +61,9 @@ test/select-test/stdin_test
 ch-14 TCP advanced application/unblock/tcp_unblock_server
 ch-14 TCP advanced application/unblock/tcp_unblock_client
 ch-14 TCP advanced application/select/stdin_test
+ch-14 TCP advanced application/socketop/socket_opt
+ch-14 TCP advanced application/select/server-multiclient/server
+ch-14 TCP advanced application/select/server-multiclient/client
+ch-14 TCP advanced application/poll/poll
+ch-13 Linux Socket Net Code/sctp/client_q_date
+ch-13 Linux Socket Net Code/13.1 Net Communicate Base/13.1.5 字节顺序与大小端问题/print_endian
