@@ -9,18 +9,36 @@
 #include <netinet/sctp.h>
 #include <arpa/inet.h>
 #include <errno.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <stdbool.h>
+
 #define MAX_BUFFER 256
 #define MY_PORT_NUM 2222
 #define LOCALTIME_STREAM 0
 #define GMT_STREAM 1
 
+
+static bool force_quit = false;
+
+void signal_handle(int signum)
+{
+	if(signum == SIGINT)
+	{
+		printf("Preparing to quit...\n");
+		force_quit = true;
+	}
+}
+
 int main()
 {
-	int connSock, in, i, flags, ret;
+	int connSock, in, flags, ret;
 	struct sockaddr_in servaddr;
 	struct sctp_sndrcvinfo sndrcvinfo;
 	struct sctp_event_subscribe events;
 	char buffer[MAX_BUFFER + 1];
+
+	signal(SIGINT, signal_handle);
 	
 	/* Create an SCTP TCP-Style Socket */
 	connSock = socket(AF_INET, SOCK_STREAM, IPPROTO_SCTP);
@@ -56,18 +74,17 @@ int main()
 	}
 	
 	/* Expect two messages from the peer */
-	for (i = 0; i < 2; i++)
+	while(!force_quit)
 	{
 		in = sctp_recvmsg(connSock, (void *)buffer, sizeof(buffer),
 						  (struct sockaddr *)NULL, 0,
 						  &sndrcvinfo, &flags);
 		/* Null terminate the incoming string */
-		if(in < 0)
+		if(in <= 0)
 		{
 			perror("sctp_recvmsg");
-			exit(errno);
+			break;
 		}
-		printf ("\n-----data-----%ld\n", strlen(buffer));
 		buffer[in] = 0;
 		if (sndrcvinfo.sinfo_stream == LOCALTIME_STREAM)
 		{

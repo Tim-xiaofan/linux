@@ -67,3 +67,6 @@ ch-14 TCP advanced application/select/server-multiclient/client
 ch-14 TCP advanced application/poll/poll
 ch-13 Linux Socket Net Code/sctp/client_q_date
 ch-13 Linux Socket Net Code/13.1 Net Communicate Base/13.1.5 字节顺序与大小端问题/print_endian
+ch-14 TCP advanced application/socketctrl/fcntl
+ch-14 TCP advanced application/socketctrl/socket_opt
+ch-13 Linux Socket Net Code/sctp/server_snd_date
