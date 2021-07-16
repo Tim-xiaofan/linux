@@ -121,7 +121,7 @@ int main(int ac, char * av[])
 							inet_ntoa(remoteaddr.sin_addr), 
 							ntohs(remoteaddr.sin_port), ret, buf);
 			}
-			usleep(1000);
+			sleep(3);
 		}
 	}
 	else
