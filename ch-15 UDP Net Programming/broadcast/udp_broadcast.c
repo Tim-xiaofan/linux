@@ -52,7 +52,7 @@ int main(int ac, char * av[])
 
 	signal(SIGINT, signal_handle);
 
-	sockfd = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);//面向消息的UDP
+	sockfd = socket(AF_INET, SOCK_DGRAM, 0);//面向消息的UDP
 	if(socket < 0)
 	{
 		perror("socket");
@@ -62,6 +62,8 @@ int main(int ac, char * av[])
 	if(strncmp("recv", av[1], 4) == 0)
 	{
 		printf("mode is recv\n");
+
+		sockfd = socket(AF_INET, SOCK_DGRAM, 0);//面向消息的UDP
 		if(ac != 2)
 		{
 			printf("Usage : ./program recv\n");
@@ -70,13 +72,13 @@ int main(int ac, char * av[])
 		localaddr.sin_family = AF_INET;
 		localaddr.sin_addr.s_addr = INADDR_ANY;//必须指定接收的IP数据为任意IP
 		localaddr.sin_port = htons(PORT);
-		ret = bind(sockfd, (const struct sockaddr *)&localaddr, sizeof(struct sockaddr));
+		ret = bind(sockfd, (struct sockaddr *)&localaddr, sizeof(struct sockaddr));
 		if(ret < 0)
 		{
 			perror("bind");
 			exit(errno);
 		}
-		printf("bind(%s:%d)", 
+		printf("bind(%s:%d)\n", 
 					inet_ntoa(localaddr.sin_addr), 
 					ntohs(localaddr.sin_port));
 		while(!force_quit)

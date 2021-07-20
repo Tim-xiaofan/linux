@@ -44,34 +44,38 @@ int main(int ac, char * av[])
 	char buf[BUF_SIZE];
 	time_t tm;
 
-	if(ac != 2)
+	if(ac != 4)
 	{
-		printf("Usage : ./program mode\n");
+		printf("Usage : ./program mode ip port\n");
 		exit(EXIT_FAILURE);
 	}
 
 	signal(SIGINT, signal_handle);
 
-	sockfd = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);//面向消息的UDP
+	sockfd = socket(AF_INET, SOCK_DGRAM, 0);//面向消息的UDP
 	if(socket < 0)
 	{
 		perror("socket");
 		exit(EXIT_FAILURE);
 	}
 	addrlen = sizeof(struct sockaddr_in);
-	
+
 	if(strncmp("recv", av[1], 4) == 0)
 	{
 		printf("mode is recv\n");
+
 		localaddr.sin_family = AF_INET;
-		localaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
-		localaddr.sin_port = htons(PORT);
-		ret = bind(sockfd, (const struct sockaddr *)&localaddr, sizeof(struct sockaddr));
-		if(ret < 0)
+		localaddr.sin_addr.s_addr = inet_addr(av[2]);
+		localaddr.sin_port = htons(atoi(av[3]));
+		ret = bind(sockfd, (struct sockaddr *)&localaddr, sizeof(struct sockaddr));
+		if(ret == -1)
 		{
 			perror("bind ");
 			exit(errno);
 		}
+		printf("bind(%s:%d)\n", 
+					inet_ntoa(localaddr.sin_addr), 
+					ntohs(localaddr.sin_port));
 		while(!force_quit)
 		{
 			ret = recvfrom(sockfd, 
@@ -96,9 +100,9 @@ int main(int ac, char * av[])
 	{
 		printf("mode is send\n");
 		remoteaddr.sin_family = AF_INET;
-		remoteaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
-		remoteaddr.sin_port = htons(PORT);
-		
+		remoteaddr.sin_addr.s_addr = inet_addr(av[2]);
+		remoteaddr.sin_port = htons(atoi(av[3]));
+
 		while(!force_quit)
 		{
 			bzero(buf, BUF_SIZE);
@@ -121,7 +125,7 @@ int main(int ac, char * av[])
 							inet_ntoa(remoteaddr.sin_addr), 
 							ntohs(remoteaddr.sin_port), ret, buf);
 			}
-			sleep(3);
+			usleep(200);
 		}
 	}
 	else
@@ -129,4 +133,5 @@ int main(int ac, char * av[])
 		fprintf(stderr, "unkown mode %s\n", av[1]);
 	}
 	close(sockfd);
+	return 0;
 }
